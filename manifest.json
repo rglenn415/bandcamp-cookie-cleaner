@@ -2,7 +2,7 @@
     "manifest_version": 3,
     "name": "Bandcamp Cookie Cleaner",
     "version": "1.0",
-    "description": "Click on Bandcamp Cookie Cleaner while on bandcamp.com to delete cookies that limit album replays.",
+    "description": "Click on the Bandcamp Cookie Cleaner extension while on bandcamp.com to delete cookies that limit album replays.",
     "permissions": [
         "cookies",
         "tabs",
