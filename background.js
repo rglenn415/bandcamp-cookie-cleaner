@@ -2,8 +2,8 @@ chrome.action.onClicked.addListener((tab) => {
     if (tab.url.includes("bandcamp.com")) {
       chrome.cookies.getAll({domain: "bandcamp.com"},(cookies) => {
         for (let cookie of cookies) {
-          console.log(`${cookie.name} at ${cookie.domain}${cookie.path}`)
-          try{
+          if(!cookie.domain.includes(".bandcamp.com")){
+            console.log(`${cookie.name} at ${cookie.domain}${cookie.path}`)
             chrome.cookies.remove({
               url: `https://${cookie.domain}${cookie.path}`,
               name: cookie.name
@@ -16,10 +16,7 @@ chrome.action.onClicked.addListener((tab) => {
                 console.log(`Failed to delete cookie: ${cookie.name}`);      
               }
             });
-          } catch (error){
-            console.error(`Error deleting cookie ${cookie.name}:`, error);
           }
-
         }
       });
       chrome.scripting.executeScript({
