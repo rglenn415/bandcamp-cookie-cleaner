@@ -3,16 +3,21 @@ chrome.action.onClicked.addListener((tab) => {
       chrome.cookies.getAll({domain: "bandcamp.com"},(cookies) => {
         for (let cookie of cookies) {
           console.log(`${cookie.name} at ${cookie.domain}${cookie.path}`)
-          chrome.cookies.remove({
-            url: `https://${cookie.domain}${cookie.path}`,
-            name: cookie.name
-          }, (details) => {
-            if (details) {
-              console.log(`Deleted cookie: ${cookie.name}`);
-            } else {
-              console.log(`Failed to delete cookie: ${cookie.name}`);      
-            }
-          });
+          try{
+            chrome.cookies.remove({
+              url: `https://${cookie.domain}${cookie.path}`,
+              name: cookie.name
+            }, (details) => {
+              if (details) {
+                console.log(`Deleted cookie: ${cookie.name}`);
+              } else {
+                console.log(`Failed to delete cookie: ${cookie.name}`);      
+              }
+            });
+          } catch (error){
+            console.error(`Error deleting cookie ${cookie.name}:`, error);
+          }
+
         }
       });
       chrome.scripting.executeScript({

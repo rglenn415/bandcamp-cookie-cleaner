@@ -4,10 +4,12 @@
     "version": "1.0",
     "description": "Deletes all cookies from bandcamp.com.",
     "permissions": [
-      "cookies",
-      "activeTab",
-      "scripting",
-      "storage"
+        "cookies",
+        "tabs",
+        "activeTab",
+        "scripting",
+        "storage",
+        "https://*.bandcamp.com/"
     ],
     "background": {
       "service_worker": "background.js"
