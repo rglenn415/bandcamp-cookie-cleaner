@@ -2,7 +2,7 @@
     "manifest_version": 3,
     "name": "Bandcamp Cookie Cleaner",
     "version": "1.0",
-    "description": "Deletes cookies that stop you from listening on to albums multiple times on bandcamp.com. To use click the extension while bandcamp is your open tab.",
+    "description": "Click on Bandcamp Cookie Cleaner while on bandcamp.com to delete cookies that limit album replays.",
     "permissions": [
         "cookies",
         "tabs",
