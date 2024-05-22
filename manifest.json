@@ -8,8 +8,7 @@
         "tabs",
         "activeTab",
         "scripting",
-        "storage",
-        "https://*.bandcamp.com/"
+        "storage"
     ],
     "background": {
       "service_worker": "background.js"

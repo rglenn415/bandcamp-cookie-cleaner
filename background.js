@@ -8,7 +8,9 @@ chrome.action.onClicked.addListener((tab) => {
               url: `https://${cookie.domain}${cookie.path}`,
               name: cookie.name
             }, (details) => {
-              if (details) {
+              if (chrome.runtime.lastError) {
+                console.error(`Error deleting cookie ${cookie.name}:`, chrome.runtime.lastError);
+              } else if (details) {
                 console.log(`Deleted cookie: ${cookie.name}`);
               } else {
                 console.log(`Failed to delete cookie: ${cookie.name}`);      
