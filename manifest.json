@@ -1,0 +1,26 @@
+{
+    "manifest_version": 3,
+    "name": "Bandcamp Cookie Cleaner",
+    "version": "1.0",
+    "description": "Deletes all cookies from bandcamp.com.",
+    "permissions": [
+      "cookies",
+      "activeTab",
+      "scripting",
+      "storage"
+    ],
+    "background": {
+      "service_worker": "background.js"
+    },
+    "action": {
+      "default_icon": {
+        "16": "icon16.png",
+        "48": "icon48.png",
+        "128": "icon128.png"
+      }
+    },
+    "host_permissions": [
+      "*://*.bandcamp.com/*"
+    ]
+  }
+  
