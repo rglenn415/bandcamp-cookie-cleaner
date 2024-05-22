@@ -2,8 +2,8 @@ chrome.action.onClicked.addListener((tab) => {
     if (tab.url.includes("bandcamp.com")) {
       chrome.cookies.getAll({domain: "bandcamp.com"},(cookies) => {
         for (let cookie of cookies) {
+          // Removes cookies that throw errors because we don't have access
           if(!cookie.domain.includes(".bandcamp.com")){
-            console.log(`${cookie.name} at ${cookie.domain}${cookie.path}`)
             chrome.cookies.remove({
               url: `https://${cookie.domain}${cookie.path}`,
               name: cookie.name
